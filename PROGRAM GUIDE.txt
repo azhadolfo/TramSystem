@@ -1,0 +1,27 @@
+always use using instead of direct open connection
+
+Using connection As New SqlConnection(LoginForm.Sqlconnection.ConnectionString)
+            connection.Open()
+End Using
+------------------------------------------------------
+Pag mag geget ng table pwedeng ganto ang function 
+
+Private Function NameOfYourFunction(connection As SqlConnection) As DataTable
+End Function
+------------------------------------------------------
+COMMON SYNTAX IN SQL for Storing data in DataTable
+
+  Dim query As String = "SELECT * FROM YourTableName"
+        Using command As New SqlCommand(query, LoginForm.Sqlconnection)
+            Try
+
+                command.Parameters.AddWithValue("@parameters", fieldName)
+                Dim sda As SqlDataAdapter = New SqlDataAdapter(command)
+                Dim YourDataTable As DataTable = New DataTable()
+                sda.Fill(YourDataTable)
+
+            Catch ex As Exception
+                MessageBox.Show("Error: " & ex.Message, "MIS DEPARTMENT", MessageBoxButtons.OKCancel, MessageBoxIcon.Error)
+            End Try
+        End Using
+
