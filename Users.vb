@@ -42,9 +42,6 @@ Public Class Users
 
         Me.btnSave.Enabled = False
 
-
-        MessageBox.Show("Testing my git to familarixze")
-
     End Sub
 
     Private Sub btnView_Click(sender As Object, e As EventArgs) Handles btnView.Click
