@@ -23,6 +23,7 @@ Partial Class UserFile
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim resources As ComponentModel.ComponentResourceManager = New ComponentModel.ComponentResourceManager(GetType(UserFile))
         DataGridView1 = New DataGridView()
         CType(DataGridView1, ComponentModel.ISupportInitialize).BeginInit()
         SuspendLayout()
@@ -51,6 +52,7 @@ Partial Class UserFile
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(367, 525)
         Controls.Add(DataGridView1)
+        Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Name = "UserFile"
         StartPosition = FormStartPosition.CenterScreen
         Text = "UserFile"
