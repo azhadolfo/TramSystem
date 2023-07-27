@@ -4,7 +4,7 @@ Imports System.Security.Cryptography.X509Certificates
 Imports System.Text
 
 Public Class LoginForm
-    Public Shared connectionString As String = "Provider=VFPOLEDB; Data Source=C:\NewFoxSys\TRAMSystem\data\"
+    Public Shared connectionString As String = "Provider=VFPOLEDB; Data Source=Z:\_Tramsystem\FoxData"
     Public Shared connectionsString As String = "Data Source=WIN-IU3ACLEQUUI;Initial Catalog=vb_crud;Persist Security Info=True;User ID=user3;Password=twainc."
     Public Shared Vfpconnection As New OleDbConnection(connectionString)
     Public Shared Sqlconnection As SqlConnection = New SqlConnection(connectionsString)
