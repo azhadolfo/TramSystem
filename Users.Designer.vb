@@ -22,6 +22,7 @@ Partial Class Users
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As ComponentModel.ComponentResourceManager = New ComponentModel.ComponentResourceManager(GetType(Users))
         PictureBox1 = New PictureBox()
         Label1 = New Label()
         txtEmpno = New TextBox()
@@ -243,9 +244,10 @@ Partial Class Users
         Controls.Add(txtEmpno)
         Controls.Add(Label1)
         Controls.Add(PictureBox1)
+        Icon = CType(resources.GetObject("$this.Icon"), Icon)
         Name = "Users"
         StartPosition = FormStartPosition.CenterScreen
-        Text = "S"
+        Text = "Users"
         CType(PictureBox1, ComponentModel.ISupportInitialize).EndInit()
         ResumeLayout(False)
         PerformLayout()

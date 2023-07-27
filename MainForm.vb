@@ -14,8 +14,8 @@ Public Class MainForm
             '------------------------End of Connection ----------------------'
             Try
 
-                Dim applicationPath As String = "C:\NewFoxSys\TRAMSystem\trams.exe" ' Replace with the path to your application
-                Dim workingDirectory As String = "C:\NewFoxSys\TRAMSystem" ' Replace with the desired working directory path
+                Dim applicationPath As String = "\\192.168.0.251\public_trams\setup\trams.exe" ' Replace with the path to your application
+                Dim workingDirectory As String = "\\192.168.0.251\public_trams\setup" ' Replace with the desired working directory path
 
                 ' Disable or lock the user interface elements
                 btnGetData.Enabled = False ' Disable the button
