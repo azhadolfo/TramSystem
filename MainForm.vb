@@ -14,8 +14,8 @@ Public Class MainForm
             '------------------------End of Connection ----------------------'
             Try
 
-                Dim applicationPath As String = "C:\Users\FILPRIDE\source\repos\tramsystem1\TRAMSData\trams.exe" ' Replace with the path to your application
-                Dim workingDirectory As String = "C:\Users\FILPRIDE\source\repos\tramsystem1\TRAMSData" ' Replace with the desired working directory path
+                Dim applicationPath As String = "\\192.168.0.251\public_trams\trams.exe" ' Replace with the path to your application
+                Dim workingDirectory As String = "\\192.168.0.251\public_trams" ' Replace with the desired working directory path
 
                 ' Disable or lock the user interface elements
                 btnGetData.Enabled = False ' Disable the button
