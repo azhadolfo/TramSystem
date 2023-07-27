@@ -5,7 +5,7 @@ Imports System.Text
 
 Public Class LoginForm
     Public Shared connectionString As String = "Provider=VFPOLEDB; Data Source=C:\NewFoxSys\TRAMSystem\data\"
-    Public Shared connectionsString As String = "Data Source=DESKTOP-LCC7IC5\SQLEXPRESS;Initial catalog=vb_crud;Integrated Security=True"
+    Public Shared connectionsString As String = "Data Source=WIN-IU3ACLEQUUI;Initial Catalog=vb_crud;Persist Security Info=True;User ID=user3;Password=twainc."
     Public Shared Vfpconnection As New OleDbConnection(connectionString)
     Public Shared Sqlconnection As SqlConnection = New SqlConnection(connectionsString)
 
