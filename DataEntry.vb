@@ -185,6 +185,8 @@ Public Class DataEntry
         Dim voucher_hdr As DataTable = DisplayHeader()
         totalRowCount = voucher_hdr.Rows.Count
 
+        btnPrev.Enabled = False
+
         txtVoucherdate.Text = voucher_hdr.Rows(0)("cvdate")
         txtVoucherno.Text = voucher_hdr.Rows(0)("cvno")
         txtPayee.Text = voucher_hdr.Rows(0)("payee")
@@ -231,6 +233,7 @@ Public Class DataEntry
 
     Private Sub btnLast_Click(sender As Object, e As EventArgs) Handles btnLast.Click
 
+        btnNext.Enabled = False
 
         LoginForm.Sqlconnection.Open()
         Dim voucher_hdr As DataTable = DisplayHeader()
@@ -359,8 +362,9 @@ Public Class DataEntry
         totalRowCount = voucher_hdr.Rows.Count
 
         ' Update the label's text with the record count
-        lblRecs.Text = (currentRowIndex + 1).ToString() & "/" & totalRowCount.ToString()
+
         If currentRowIndex >= 0 AndAlso currentRowIndex < voucher_hdr.Rows.Count Then
+            lblRecs.Text = (currentRowIndex + 1).ToString() & "/" & totalRowCount.ToString()
             ' Retrieve the next row based on the current row index
             Dim prevRow As DataRow = voucher_hdr.Rows(currentRowIndex)
 
