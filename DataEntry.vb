@@ -185,8 +185,6 @@ Public Class DataEntry
         Dim voucher_hdr As DataTable = DisplayHeader()
         totalRowCount = voucher_hdr.Rows.Count
 
-        btnPrev.Enabled = False
-
         txtVoucherdate.Text = voucher_hdr.Rows(0)("cvdate")
         txtVoucherno.Text = voucher_hdr.Rows(0)("cvno")
         txtPayee.Text = voucher_hdr.Rows(0)("payee")
@@ -233,7 +231,6 @@ Public Class DataEntry
 
     Private Sub btnLast_Click(sender As Object, e As EventArgs) Handles btnLast.Click
 
-        btnNext.Enabled = False
 
         LoginForm.Sqlconnection.Open()
         Dim voucher_hdr As DataTable = DisplayHeader()
