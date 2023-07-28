@@ -2,7 +2,8 @@
 Imports System.Data.SqlClient
 Imports System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel
 Imports DocumentFormat.OpenXml.Wordprocessing
-
+Imports System.Security.Cryptography
+Imports System.Text
 Public Class Users
     Private bAdd As Boolean
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles btnClose.Click
@@ -85,6 +86,16 @@ Public Class Users
 
         If bAdd Then
             Try
+
+                Dim originalData As String = txtPassword.Text
+                Dim key As String = "0123456789ABCDEF" ' Must be 16, 24, or 32 characters long for AES-128, AES-192, or AES-256 respectively.
+                Dim iv As String = "FEDCBA9876543210"  ' Must be 16 characters long.
+
+                Dim encryptedData As String = EncryptData(originalData, key, iv)
+
+
+
+
                 LoginForm.Sqlconnection.Open()
 
                 ' Create a SQL command to insert the data into the database
@@ -93,7 +104,7 @@ Public Class Users
                     ' Set the parameter values
                     command.Parameters.AddWithValue("@EmpNo", txtEmpno.Text)
                     command.Parameters.AddWithValue("@EmpName", txtEmpname.Text)
-                    command.Parameters.AddWithValue("@Password", txtPassword.Text)
+                    command.Parameters.AddWithValue("@Password", encryptedData)
                     command.Parameters.AddWithValue("@AllowGetData", chkFast.Checked)
                     command.Parameters.AddWithValue("@AllowEdit", chkEdit.Checked)
                     command.Parameters.AddWithValue("@AllowReport", chkReport.Checked)
@@ -207,8 +218,9 @@ Public Class Users
 
         Me.btnSave.Enabled = False
 
-        LoginForm.Sqlconnection.Open()
+
         Try
+            LoginForm.Sqlconnection.Open()
             Dim userid As String = txtEmpno.Text
             Dim dtUsers As DataTable = GetUsers(userid)
 
@@ -391,4 +403,59 @@ Public Class Users
     Private Sub Users_Closed(sender As Object, e As EventArgs) Handles MyBase.Closed
         MainForm.Show()
     End Sub
+
+    Public Function EncryptData(ByVal data As String, ByVal key As String, ByVal iv As String) As String
+        Dim encrypted As String = Nothing
+
+        Using aes As New AesManaged()
+            Try
+                aes.Key = Encoding.UTF8.GetBytes(key)
+                aes.IV = Encoding.UTF8.GetBytes(iv)
+
+                Dim encryptor As ICryptoTransform = aes.CreateEncryptor(aes.Key, aes.IV)
+
+                Using ms As New IO.MemoryStream()
+                    Using cs As New CryptoStream(ms, encryptor, CryptoStreamMode.Write)
+                        Dim dataBytes As Byte() = Encoding.UTF8.GetBytes(data)
+                        cs.Write(dataBytes, 0, dataBytes.Length)
+                        cs.FlushFinalBlock()
+                    End Using
+                    encrypted = Convert.ToBase64String(ms.ToArray())
+                End Using
+            Catch ex As Exception
+                ' Handle any exceptions here
+            End Try
+        End Using
+
+        Return encrypted
+    End Function
+
+    Public Function DecryptData(ByVal encryptedData As String, ByVal key As String, ByVal iv As String) As String
+        Dim decrypted As String = Nothing
+
+        Using aes As New AesManaged()
+            Try
+                aes.Key = Encoding.UTF8.GetBytes(key)
+                aes.IV = Encoding.UTF8.GetBytes(iv)
+
+                Dim decryptor As ICryptoTransform = aes.CreateDecryptor(aes.Key, aes.IV)
+
+                Using ms As New IO.MemoryStream()
+                    Using cs As New CryptoStream(ms, decryptor, CryptoStreamMode.Write)
+                        Dim encryptedBytes As Byte() = Convert.FromBase64String(encryptedData)
+                        cs.Write(encryptedBytes, 0, encryptedBytes.Length)
+                        cs.FlushFinalBlock()
+                    End Using
+                    decrypted = Encoding.UTF8.GetString(ms.ToArray())
+                End Using
+            Catch ex As Exception
+                ' Handle any exceptions here
+            End Try
+        End Using
+
+        Return decrypted
+    End Function
+
+
+
 End Class
