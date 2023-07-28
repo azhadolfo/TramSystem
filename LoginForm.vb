@@ -105,9 +105,13 @@ Public Class LoginForm
         'This is the Connection to Sql Server'
 
         'This is the command to sql'
+
+        Dim password As String = txtPassword.Text
+        Dim hashedPassword As String = HashPassword(password)
+
         Dim cmd As SqlCommand = New SqlCommand("SELECT * FROM tblemployee WHERE userid=@userid AND password=@password", Sqlconnection)
         cmd.Parameters.AddWithValue("@userid", txtUsername.Text)
-        cmd.Parameters.AddWithValue("@password", txtPassword.Text)
+        cmd.Parameters.AddWithValue("@password", hashedPassword)
         Dim sda As SqlDataAdapter = New SqlDataAdapter(cmd)
         Dim dt As DataTable = New DataTable()
         sda.Fill(dt)
