@@ -23,30 +23,30 @@ Public Class DataEntry
 
     Private Sub DataEntry_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         LoginForm.Sqlconnection.Open()
-
-        ' Call the function to get the record count from the database
-        Dim recordCount As Integer = GetRecordCount()
-
-
-        Dim voucher_hdr As DataTable = DisplayHeader()
-        totalRowCount = voucher_hdr.Rows.Count
-
-        txtVoucherdate.Text = voucher_hdr.Rows(0)("cvdate")
-        txtVoucherno.Text = voucher_hdr.Rows(0)("cvno")
-        txtPayee.Text = voucher_hdr.Rows(0)("payee")
-        txtParticular.Text = voucher_hdr.Rows(0)("particular")
-        txtCheckno.Text = voucher_hdr.Rows(0)("checkno")
-        txtCheckdate.Text = voucher_hdr.Rows(0)("checkdate")
-        txtAmount.Text = voucher_hdr.Rows(0)("amount")
-        LTransno = voucher_hdr.Rows(0)("transno")
-
-        ' Update the label's text with the record count
-        lblRecs.Text = (currentRowIndex + 1).ToString() & "/" & totalRowCount.ToString()
+        Try
+            ' Call the function to get the record count from the database
+            Dim recordCount As Integer = GetRecordCount()
 
 
-        ' Query to fetch the data from the database
+            Dim voucher_hdr As DataTable = DisplayHeader()
+            totalRowCount = voucher_hdr.Rows.Count
 
-        Dim query As String = "SELECT a.acctno AS [CODE#], a.acctname AS [DESCRIPTION], a.amount AS [AMOUNT], a.refid, 
+            txtVoucherdate.Text = voucher_hdr.Rows(0)("cvdate")
+            txtVoucherno.Text = voucher_hdr.Rows(0)("cvno")
+            txtPayee.Text = voucher_hdr.Rows(0)("payee")
+            txtParticular.Text = voucher_hdr.Rows(0)("particular")
+            txtCheckno.Text = voucher_hdr.Rows(0)("checkno")
+            txtCheckdate.Text = voucher_hdr.Rows(0)("checkdate")
+            txtAmount.Text = voucher_hdr.Rows(0)("amount")
+            LTransno = voucher_hdr.Rows(0)("transno")
+
+            ' Update the label's text with the record count
+            lblRecs.Text = (currentRowIndex + 1).ToString() & "/" & totalRowCount.ToString()
+
+
+            ' Query to fetch the data from the database
+
+            Dim query As String = "SELECT a.acctno AS [CODE#], a.acctname AS [DESCRIPTION], a.amount AS [AMOUNT], a.refid, 
                                CASE WHEN b.tugboat IS NULL THEN '   ' ELSE b.tugboat END as tugboat, 
                                CASE WHEN c.number IS NULL THEN '   ' ELSE c.number END as number, 
                                CASE WHEN c.name IS NULL THEN SPACE(35) ELSE c.name END AS [TUGBOAT], 
@@ -55,80 +55,80 @@ Public Class DataEntry
                             LEFT JOIN repair_dtl AS b ON a.transno = b.transno AND a.refid = b.recid
                             LEFT JOIN tugboat AS c ON b.tugboat = c.number
                             WHERE a.transno = @tTransno"
-        Dim cmd As SqlCommand = New SqlCommand(query, LoginForm.Sqlconnection)
-        cmd.Parameters.AddWithValue("@tTransno", LTransno)
-        Dim sda As SqlDataAdapter = New SqlDataAdapter(cmd)
-        Dim curdetails As DataTable = New DataTable()
-        sda.Fill(curdetails)
+            Dim cmd As SqlCommand = New SqlCommand(query, LoginForm.Sqlconnection)
+            cmd.Parameters.AddWithValue("@tTransno", LTransno)
+            Dim sda As SqlDataAdapter = New SqlDataAdapter(cmd)
+            Dim curdetails As DataTable = New DataTable()
+            sda.Fill(curdetails)
 
-        DataGridView1.Columns.Add("CODE#", "CODE#")
-        DataGridView1.Columns("CODE#").DataPropertyName = "CODE#"
-        DataGridView1.Columns("CODE#").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+            DataGridView1.Columns.Add("CODE#", "CODE#")
+            DataGridView1.Columns("CODE#").DataPropertyName = "CODE#"
+            DataGridView1.Columns("CODE#").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
 
-        DataGridView1.Columns.Add("DESCRIPTION", "DESCRIPTION")
-        DataGridView1.Columns("DESCRIPTION").DataPropertyName = "DESCRIPTION"
-        DataGridView1.Columns("DESCRIPTION").AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
+            DataGridView1.Columns.Add("DESCRIPTION", "DESCRIPTION")
+            DataGridView1.Columns("DESCRIPTION").DataPropertyName = "DESCRIPTION"
+            DataGridView1.Columns("DESCRIPTION").AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill
 
-        DataGridView1.Columns.Add("AMOUNT", "AMOUNT")
-        DataGridView1.Columns("AMOUNT").DataPropertyName = "AMOUNT"
-        DataGridView1.Columns("AMOUNT").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+            DataGridView1.Columns.Add("AMOUNT", "AMOUNT")
+            DataGridView1.Columns("AMOUNT").DataPropertyName = "AMOUNT"
+            DataGridView1.Columns("AMOUNT").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
 
-        DataGridView1.Columns.Add("TUGBOAT1", "TUGBOAT")
-        DataGridView1.Columns("TUGBOAT1").DataPropertyName = "TUGBOAT1"
-        DataGridView1.Columns("TUGBOAT1").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+            DataGridView1.Columns.Add("TUGBOAT1", "TUGBOAT")
+            DataGridView1.Columns("TUGBOAT1").DataPropertyName = "TUGBOAT1"
+            DataGridView1.Columns("TUGBOAT1").AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
 
-        DataGridView1.Columns.Add("refid", "refid")
-        DataGridView1.Columns("refid").DataPropertyName = "refid"
+            DataGridView1.Columns.Add("refid", "refid")
+            DataGridView1.Columns("refid").DataPropertyName = "refid"
 
-        DataGridView1.Columns.Add("tugboat", "tugboat")
-        DataGridView1.Columns("tugboat").DataPropertyName = "tugboat"
+            DataGridView1.Columns.Add("tugboat", "tugboat")
+            DataGridView1.Columns("tugboat").DataPropertyName = "tugboat"
 
-        DataGridView1.Columns.Add("number", "number")
-        DataGridView1.Columns("number").DataPropertyName = "number"
+            DataGridView1.Columns.Add("number", "number")
+            DataGridView1.Columns("number").DataPropertyName = "number"
 
-        DataGridView1.Columns.Add("transno", "transno")
-        DataGridView1.Columns("transno").DataPropertyName = "transno"
+            DataGridView1.Columns.Add("transno", "transno")
+            DataGridView1.Columns("transno").DataPropertyName = "transno"
 
-        DataGridView1.Columns.Add("recid", "recid")
-        DataGridView1.Columns("recid").DataPropertyName = "recid"
-
-
-        DataGridView1.Columns("number").Visible = False
-        DataGridView1.Columns("refid").Visible = False
-        DataGridView1.Columns("tugboat").Visible = False
-        DataGridView1.Columns("transno").Visible = False
-        DataGridView1.Columns("recid").Visible = False
+            DataGridView1.Columns.Add("recid", "recid")
+            DataGridView1.Columns("recid").DataPropertyName = "recid"
 
 
-        DataGridView1.DataSource = curdetails
+            DataGridView1.Columns("number").Visible = False
+            DataGridView1.Columns("refid").Visible = False
+            DataGridView1.Columns("tugboat").Visible = False
+            DataGridView1.Columns("transno").Visible = False
+            DataGridView1.Columns("recid").Visible = False
 
-        Dim currentDate As DateTime = DateTime.Now
-        txtDate.Text = currentDate.ToString("M/d/yyyy")
-        cboTugboat.SelectedIndex = 0
-        'Try
 
-        '    ' SQL query to fetch data from a table, adjust this query based on your needs
-        '    Dim query1 As String = "SELECT * FROM tugboat"
-        '    Dim command As New SqlCommand(query1, LoginForm.Sqlconnection)
+            DataGridView1.DataSource = curdetails
 
-        '    ' Execute the query and read data into a SqlDataReader
-        '    Dim reader As SqlDataReader = command.ExecuteReader()
+            Dim currentDate As DateTime = DateTime.Now
+            txtDate.Text = currentDate.ToString("M/d/yyyy")
+            cboTugboat.SelectedIndex = 0
 
-        '    ' Clear the existing items in the ComboBox
-        '    cboTugboat.Items.Clear()
 
-        '    ' Loop through the data and add it to the ComboBox
-        '    While reader.Read()
-        '        cboTugboat.Items.Add(reader("number").ToString())
-        '    End While
+            '    ' SQL query to fetch data from a table, adjust this query based on your needs
+            '    Dim query1 As String = "SELECT * FROM tugboat"
+            '    Dim command As New SqlCommand(query1, LoginForm.Sqlconnection)
 
-        '    ' Close the reader and connection
-        '    reader.Close()
+            '    ' Execute the query and read data into a SqlDataReader
+            '    Dim reader As SqlDataReader = command.ExecuteReader()
 
-        'Catch ex As Exception
-        '    MessageBox.Show("Error: " & ex.Message)
-        '    LoginForm.Sqlconnection.Close()
-        'End Try
+            '    ' Clear the existing items in the ComboBox
+            '    cboTugboat.Items.Clear()
+
+            '    ' Loop through the data and add it to the ComboBox
+            '    While reader.Read()
+            '        cboTugboat.Items.Add(reader("number").ToString())
+            '    End While
+
+            '    ' Close the reader and connection
+            '    reader.Close()
+
+        Catch ex As Exception
+            MessageBox.Show("Error: " & ex.Message)
+            LoginForm.Sqlconnection.Close()
+        End Try
 
         LoginForm.Sqlconnection.Close()
 
