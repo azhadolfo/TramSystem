@@ -42,10 +42,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="bin\Debug\TurboatReport.rdlc" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="ClosedXML" Version="0.102.0" />
     <PackageReference Include="Dapper" Version="2.0.143" />
     <PackageReference Include="System.Data.OleDb" Version="7.0.0" />
@@ -103,6 +99,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="bin\Debug\" />
     <Folder Include="My Project\DataSources\" />
   </ItemGroup>
 

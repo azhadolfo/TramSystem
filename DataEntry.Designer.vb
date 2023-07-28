@@ -29,28 +29,29 @@ Partial Class DataEntry
         Label2 = New Label()
         Label3 = New Label()
         btnSearch = New GroupBox()
+        txtDate = New TextBox()
+        txtTugboatname = New TextBox()
+        txtRef = New TextBox()
+        txtSupplier = New TextBox()
+        txtParticulars = New TextBox()
+        txtRemarks = New RichTextBox()
+        btnSave = New Button()
+        btnDelete = New Button()
+        btnUpdate = New Button()
         lblRecs = New Label()
+        btnClose = New Button()
         Panel1 = New Panel()
         txtSearch = New TextBox()
-        btnUpdate = New Button()
         btnLast = New Button()
         btnNext = New Button()
         btnPrev = New Button()
         btnTop = New Button()
-        btnClose = New Button()
-        btnDelete = New Button()
-        txtRemarks = New RichTextBox()
         Label18 = New Label()
-        txtParticulars = New TextBox()
         Label17 = New Label()
         cboTugboat = New ComboBox()
-        txtSupplier = New TextBox()
         Label16 = New Label()
-        txtRef = New TextBox()
         Label13 = New Label()
-        txtTugboatname = New TextBox()
         Label14 = New Label()
-        txtDate = New TextBox()
         Label15 = New Label()
         DataGridView1 = New DataGridView()
         Label10 = New Label()
@@ -59,7 +60,6 @@ Partial Class DataEntry
         txtCheckdate = New TextBox()
         Label5 = New Label()
         txtParticular = New RichTextBox()
-        btnSave = New Button()
         txtPayee = New TextBox()
         Label7 = New Label()
         txtCheckno = New TextBox()
@@ -164,6 +164,80 @@ Partial Class DataEntry
         btnSearch.TabIndex = 6
         btnSearch.TabStop = False
         ' 
+        ' txtDate
+        ' 
+        txtDate.Location = New Point(101, 433)
+        txtDate.Name = "txtDate"
+        txtDate.Size = New Size(100, 23)
+        txtDate.TabIndex = 1
+        ' 
+        ' txtTugboatname
+        ' 
+        txtTugboatname.Location = New Point(165, 465)
+        txtTugboatname.Name = "txtTugboatname"
+        txtTugboatname.ReadOnly = True
+        txtTugboatname.Size = New Size(239, 23)
+        txtTugboatname.TabIndex = 2
+        ' 
+        ' txtRef
+        ' 
+        txtRef.Location = New Point(101, 494)
+        txtRef.Name = "txtRef"
+        txtRef.Size = New Size(303, 23)
+        txtRef.TabIndex = 3
+        ' 
+        ' txtSupplier
+        ' 
+        txtSupplier.Location = New Point(101, 523)
+        txtSupplier.Name = "txtSupplier"
+        txtSupplier.Size = New Size(303, 23)
+        txtSupplier.TabIndex = 4
+        ' 
+        ' txtParticulars
+        ' 
+        txtParticulars.Location = New Point(101, 552)
+        txtParticulars.Name = "txtParticulars"
+        txtParticulars.Size = New Size(303, 23)
+        txtParticulars.TabIndex = 5
+        ' 
+        ' txtRemarks
+        ' 
+        txtRemarks.Location = New Point(101, 581)
+        txtRemarks.Name = "txtRemarks"
+        txtRemarks.Size = New Size(303, 59)
+        txtRemarks.TabIndex = 6
+        txtRemarks.Text = ""
+        ' 
+        ' btnSave
+        ' 
+        btnSave.FlatStyle = FlatStyle.System
+        btnSave.Location = New Point(651, 451)
+        btnSave.Name = "btnSave"
+        btnSave.Size = New Size(133, 40)
+        btnSave.TabIndex = 7
+        btnSave.Text = "Save"
+        btnSave.UseVisualStyleBackColor = True
+        ' 
+        ' btnDelete
+        ' 
+        btnDelete.FlatStyle = FlatStyle.System
+        btnDelete.Location = New Point(651, 497)
+        btnDelete.Name = "btnDelete"
+        btnDelete.Size = New Size(133, 40)
+        btnDelete.TabIndex = 8
+        btnDelete.Text = "Delete"
+        btnDelete.UseVisualStyleBackColor = True
+        ' 
+        ' btnUpdate
+        ' 
+        btnUpdate.FlatStyle = FlatStyle.System
+        btnUpdate.Location = New Point(651, 543)
+        btnUpdate.Name = "btnUpdate"
+        btnUpdate.Size = New Size(133, 40)
+        btnUpdate.TabIndex = 9
+        btnUpdate.Text = "Update"
+        btnUpdate.UseVisualStyleBackColor = True
+        ' 
         ' lblRecs
         ' 
         lblRecs.AutoSize = True
@@ -171,6 +245,16 @@ Partial Class DataEntry
         lblRecs.Name = "lblRecs"
         lblRecs.Size = New Size(0, 15)
         lblRecs.TabIndex = 46
+        ' 
+        ' btnClose
+        ' 
+        btnClose.FlatStyle = FlatStyle.System
+        btnClose.Location = New Point(651, 589)
+        btnClose.Name = "btnClose"
+        btnClose.Size = New Size(133, 40)
+        btnClose.TabIndex = 10
+        btnClose.Text = "Close"
+        btnClose.UseVisualStyleBackColor = True
         ' 
         ' Panel1
         ' 
@@ -188,16 +272,6 @@ Partial Class DataEntry
         txtSearch.PlaceholderText = "Input voucher number"
         txtSearch.Size = New Size(149, 23)
         txtSearch.TabIndex = 44
-        ' 
-        ' btnUpdate
-        ' 
-        btnUpdate.FlatStyle = FlatStyle.System
-        btnUpdate.Location = New Point(651, 543)
-        btnUpdate.Name = "btnUpdate"
-        btnUpdate.Size = New Size(133, 40)
-        btnUpdate.TabIndex = 43
-        btnUpdate.Text = "Update"
-        btnUpdate.UseVisualStyleBackColor = True
         ' 
         ' btnLast
         ' 
@@ -240,34 +314,6 @@ Partial Class DataEntry
         btnTop.TabIndex = 39
         btnTop.UseVisualStyleBackColor = True
         ' 
-        ' btnClose
-        ' 
-        btnClose.FlatStyle = FlatStyle.System
-        btnClose.Location = New Point(651, 589)
-        btnClose.Name = "btnClose"
-        btnClose.Size = New Size(133, 40)
-        btnClose.TabIndex = 38
-        btnClose.Text = "Close"
-        btnClose.UseVisualStyleBackColor = True
-        ' 
-        ' btnDelete
-        ' 
-        btnDelete.FlatStyle = FlatStyle.System
-        btnDelete.Location = New Point(651, 497)
-        btnDelete.Name = "btnDelete"
-        btnDelete.Size = New Size(133, 40)
-        btnDelete.TabIndex = 37
-        btnDelete.Text = "Delete"
-        btnDelete.UseVisualStyleBackColor = True
-        ' 
-        ' txtRemarks
-        ' 
-        txtRemarks.Location = New Point(101, 581)
-        txtRemarks.Name = "txtRemarks"
-        txtRemarks.Size = New Size(303, 59)
-        txtRemarks.TabIndex = 36
-        txtRemarks.Text = ""
-        ' 
         ' Label18
         ' 
         Label18.AutoSize = True
@@ -276,13 +322,6 @@ Partial Class DataEntry
         Label18.Size = New Size(52, 15)
         Label18.TabIndex = 35
         Label18.Text = "Remarks"
-        ' 
-        ' txtParticulars
-        ' 
-        txtParticulars.Location = New Point(101, 552)
-        txtParticulars.Name = "txtParticulars"
-        txtParticulars.Size = New Size(303, 23)
-        txtParticulars.TabIndex = 34
         ' 
         ' Label17
         ' 
@@ -301,14 +340,7 @@ Partial Class DataEntry
         cboTugboat.Location = New Point(101, 465)
         cboTugboat.Name = "cboTugboat"
         cboTugboat.Size = New Size(58, 23)
-        cboTugboat.TabIndex = 32
-        ' 
-        ' txtSupplier
-        ' 
-        txtSupplier.Location = New Point(101, 523)
-        txtSupplier.Name = "txtSupplier"
-        txtSupplier.Size = New Size(303, 23)
-        txtSupplier.TabIndex = 31
+        cboTugboat.TabIndex = 2
         ' 
         ' Label16
         ' 
@@ -319,13 +351,6 @@ Partial Class DataEntry
         Label16.TabIndex = 30
         Label16.Text = "Supplier"
         ' 
-        ' txtRef
-        ' 
-        txtRef.Location = New Point(101, 494)
-        txtRef.Name = "txtRef"
-        txtRef.Size = New Size(303, 23)
-        txtRef.TabIndex = 8
-        ' 
         ' Label13
         ' 
         Label13.AutoSize = True
@@ -335,14 +360,6 @@ Partial Class DataEntry
         Label13.TabIndex = 7
         Label13.Text = "Referrence"
         ' 
-        ' txtTugboatname
-        ' 
-        txtTugboatname.Location = New Point(165, 465)
-        txtTugboatname.Name = "txtTugboatname"
-        txtTugboatname.ReadOnly = True
-        txtTugboatname.Size = New Size(239, 23)
-        txtTugboatname.TabIndex = 19
-        ' 
         ' Label14
         ' 
         Label14.AutoSize = True
@@ -351,13 +368,6 @@ Partial Class DataEntry
         Label14.Size = New Size(51, 15)
         Label14.TabIndex = 18
         Label14.Text = "Tugboat"
-        ' 
-        ' txtDate
-        ' 
-        txtDate.Location = New Point(101, 433)
-        txtDate.Name = "txtDate"
-        txtDate.Size = New Size(100, 23)
-        txtDate.TabIndex = 16
         ' 
         ' Label15
         ' 
@@ -389,7 +399,7 @@ Partial Class DataEntry
         DataGridView1.ReadOnly = True
         DataGridView1.RowTemplate.Height = 25
         DataGridView1.Size = New Size(801, 150)
-        DataGridView1.TabIndex = 4
+        DataGridView1.TabIndex = 20
         ' 
         ' Label10
         ' 
@@ -416,7 +426,7 @@ Partial Class DataEntry
         txtAmount.Name = "txtAmount"
         txtAmount.ReadOnly = True
         txtAmount.Size = New Size(165, 23)
-        txtAmount.TabIndex = 11
+        txtAmount.TabIndex = 20
         ' 
         ' txtCheckdate
         ' 
@@ -425,7 +435,7 @@ Partial Class DataEntry
         txtCheckdate.Name = "txtCheckdate"
         txtCheckdate.ReadOnly = True
         txtCheckdate.Size = New Size(165, 23)
-        txtCheckdate.TabIndex = 12
+        txtCheckdate.TabIndex = 20
         ' 
         ' Label5
         ' 
@@ -443,18 +453,8 @@ Partial Class DataEntry
         txtParticular.Name = "txtParticular"
         txtParticular.ReadOnly = True
         txtParticular.Size = New Size(303, 96)
-        txtParticular.TabIndex = 11
+        txtParticular.TabIndex = 20
         txtParticular.Text = ""
-        ' 
-        ' btnSave
-        ' 
-        btnSave.FlatStyle = FlatStyle.System
-        btnSave.Location = New Point(651, 451)
-        btnSave.Name = "btnSave"
-        btnSave.Size = New Size(133, 40)
-        btnSave.TabIndex = 10
-        btnSave.Text = "Save"
-        btnSave.UseVisualStyleBackColor = True
         ' 
         ' txtPayee
         ' 
@@ -463,7 +463,7 @@ Partial Class DataEntry
         txtPayee.Name = "txtPayee"
         txtPayee.ReadOnly = True
         txtPayee.Size = New Size(303, 23)
-        txtPayee.TabIndex = 5
+        txtPayee.TabIndex = 20
         ' 
         ' Label7
         ' 
@@ -481,7 +481,7 @@ Partial Class DataEntry
         txtCheckno.Name = "txtCheckno"
         txtCheckno.ReadOnly = True
         txtCheckno.Size = New Size(165, 23)
-        txtCheckno.TabIndex = 7
+        txtCheckno.TabIndex = 20
         ' 
         ' Label6
         ' 
@@ -499,7 +499,7 @@ Partial Class DataEntry
         txtVoucherno.Name = "txtVoucherno"
         txtVoucherno.ReadOnly = True
         txtVoucherno.Size = New Size(100, 23)
-        txtVoucherno.TabIndex = 3
+        txtVoucherno.TabIndex = 20
         ' 
         ' txtVoucherdate
         ' 
@@ -508,7 +508,7 @@ Partial Class DataEntry
         txtVoucherdate.Name = "txtVoucherdate"
         txtVoucherdate.ReadOnly = True
         txtVoucherdate.Size = New Size(100, 23)
-        txtVoucherdate.TabIndex = 1
+        txtVoucherdate.TabIndex = 20
         ' 
         ' Label4
         ' 
