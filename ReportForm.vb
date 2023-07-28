@@ -693,7 +693,7 @@ Public Class ReportForm
         Dim format As New StringFormat
         format.Alignment = StringAlignment.Center
         e.Graphics.DrawString("Tugboat List", New Font("Century Gothic", 20, FontStyle.Bold),
-                               Brushes.Black, New Point(650, 20), format)
+                               Brushes.Black, New Point(400, 20), format)
 
         Dim fmt As StringFormat = New StringFormat(StringFormatFlags.NoWrap)
         fmt.LineAlignment = StringAlignment.Center
@@ -701,7 +701,7 @@ Public Class ReportForm
         fmt.Alignment = StringAlignment.Center
 
         Dim y As Integer = 100
-        Dim x As Integer = 250
+        Dim x As Integer = 150
         Dim h As Integer = 0
         Dim rc As Rectangle
         Dim row As DataGridViewRow
@@ -709,7 +709,7 @@ Public Class ReportForm
 
         If newPage Then
             row = DataGridView1.Rows(mRow)
-            x = 250
+            x = 150
             For Each cell As DataGridViewCell In row.Cells
                 If cell.Visible Then
                     rc = New Rectangle(x, y, cell.Size.Width, cell.Size.Height)
@@ -730,7 +730,7 @@ Public Class ReportForm
         Dim displayNow As Integer
         For displayNow = mRow To DataGridView1.RowCount - 1
             row = DataGridView1.Rows(displayNow)
-            x = 250
+            x = 150
             h = 0
 
             For Each cell As DataGridViewCell In row.Cells
