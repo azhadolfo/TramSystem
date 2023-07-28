@@ -1,8 +1,5 @@
 ﻿Imports System.Data.SqlClient
-Imports System.Data.OleDb
 Imports System.Text
-Imports Dapper
-Imports System.Collections.ObjectModel
 
 Public Class GetDataForm
     Private Sub Form3_Load(sender As Object, e As EventArgs) Handles MyBase.Load

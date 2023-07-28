@@ -1,12 +1,7 @@
-﻿Imports System.Collections.ObjectModel
-Imports System.Data.SqlClient
+﻿Imports System.Data.SqlClient
 Imports System.Drawing.Printing
 Imports System.IO
-Imports System.Runtime.InteropServices
-Imports System.Windows.Forms.VisualStyles.VisualStyleElement
 Imports ClosedXML.Excel
-Imports SixLabors.Fonts.Tables.General
-Imports tramsystem.tramsystem
 
 Public Class ReportForm
     Private Sub ReportForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load

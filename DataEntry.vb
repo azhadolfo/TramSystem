@@ -1,8 +1,6 @@
 ﻿Imports System.ComponentModel
-Imports System.Data.OleDb
 Imports System.Data.SqlClient
 Imports System.Text
-Imports Microsoft.VisualBasic.Devices
 
 Public Class DataEntry
     Private currentRowIndex As Integer = 0

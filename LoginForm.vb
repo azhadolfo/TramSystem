@@ -1,7 +1,5 @@
 ﻿Imports System.Data.OleDb
 Imports System.Data.SqlClient
-Imports System.Security.Cryptography.X509Certificates
-Imports System.Text
 
 Public Class LoginForm
     Public Shared connectionString As String = "Provider=VFPOLEDB; Data Source=\\192.168.0.251\OTC System\_Tramsystem\FoxData\"
