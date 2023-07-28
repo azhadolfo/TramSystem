@@ -169,6 +169,7 @@ Partial Class ReportForm
         ' 
         PrintPreviewDialog1.AutoScrollMargin = New Size(0, 0)
         PrintPreviewDialog1.AutoScrollMinSize = New Size(0, 0)
+        PrintPreviewDialog1.AutoSizeMode = AutoSizeMode.GrowAndShrink
         PrintPreviewDialog1.ClientSize = New Size(400, 300)
         PrintPreviewDialog1.Document = PrintDocument1
         PrintPreviewDialog1.Enabled = True

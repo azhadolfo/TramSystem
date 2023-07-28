@@ -682,8 +682,12 @@ Public Class ReportForm
 
     Private Sub btnReport_Click(sender As Object, e As EventArgs) Handles btnReport.Click
         PrintPreviewDialog1.Document = PrintDocument1
+        ' Set the PrintDocument properties, including the orientation.
+        PrintDocument1.DefaultPageSettings.Landscape = False ' Set to False for portrait.
         PrintPreviewDialog1.WindowState = FormWindowState.Maximized
         PrintPreviewDialog1.ShowDialog()
+
+
 
     End Sub
 
@@ -709,7 +713,7 @@ Public Class ReportForm
 
         If newPage Then
             row = DataGridView1.Rows(mRow)
-            x = 150
+            x = 27
             For Each cell As DataGridViewCell In row.Cells
                 If cell.Visible Then
                     rc = New Rectangle(x, y, cell.Size.Width, cell.Size.Height)
@@ -730,7 +734,7 @@ Public Class ReportForm
         Dim displayNow As Integer
         For displayNow = mRow To DataGridView1.RowCount - 1
             row = DataGridView1.Rows(displayNow)
-            x = 150
+            x = 27
             h = 0
 
             For Each cell As DataGridViewCell In row.Cells
