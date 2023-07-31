@@ -298,7 +298,7 @@ Public Class ReportForm
                                 ' Load the Excel file from the MemoryStream using ClosedXML
                                 Using excelWorkbook As New XLWorkbook(stream)
                                     ' Save it temporarily to disk
-                                    Dim tempFilePath As String = "TugboatReport_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".xlsx"
+                                    Dim tempFilePath As String = "Excel\TugboatReport_" + DateTime.Now.ToString("yyyyMMdd_HHmmss") + ".xlsx"
                                     excelWorkbook.SaveAs(tempFilePath)
 
                                     ' Open the file using the default program associated with .xlsx files
