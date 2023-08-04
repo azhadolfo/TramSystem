@@ -459,19 +459,19 @@ Public Class DataEntry
     Private Sub cboTugboat_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboTugboat.SelectedIndexChanged
 
 
-        If cboTugboat.SelectedItem = 1 Then
+        If cboTugboat.SelectedItem = "001" Then
             txtTugboatname.Text = "AMATA MARU"
         End If
-        If cboTugboat.SelectedItem = 2 Then
+        If cboTugboat.SelectedItem = "002" Then
             txtTugboatname.Text = "M/T BOHOL SEA"
         End If
-        If cboTugboat.SelectedItem = 3 Then
+        If cboTugboat.SelectedItem = "003" Then
             txtTugboatname.Text = "M/T CEBU STRAIT"
         End If
-        If cboTugboat.SelectedItem = 4 Then
+        If cboTugboat.SelectedItem = "004" Then
             txtTugboatname.Text = "LAKANDULA"
         End If
-        If cboTugboat.SelectedItem = 5 Then
+        If cboTugboat.SelectedItem = "005" Then
             txtTugboatname.Text = "M/T TABANGAO"
         End If
 

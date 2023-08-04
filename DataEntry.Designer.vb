@@ -24,6 +24,7 @@ Partial Class DataEntry
     Private Sub InitializeComponent()
         Dim resources As ComponentModel.ComponentResourceManager = New ComponentModel.ComponentResourceManager(GetType(DataEntry))
         Dim DataGridViewCellStyle1 As DataGridViewCellStyle = New DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As DataGridViewCellStyle = New DataGridViewCellStyle()
         PictureBox1 = New PictureBox()
         Label1 = New Label()
         Label2 = New Label()
@@ -336,7 +337,7 @@ Partial Class DataEntry
         ' 
         cboTugboat.DropDownStyle = ComboBoxStyle.DropDownList
         cboTugboat.FormattingEnabled = True
-        cboTugboat.Items.AddRange(New Object() {"001", "002", "003", "004", "005"})
+        cboTugboat.Items.AddRange(New Object() {"", "001", "002", "003", "004", "005"})
         cboTugboat.Location = New Point(101, 465)
         cboTugboat.Name = "cboTugboat"
         cboTugboat.Size = New Size(58, 23)
@@ -384,20 +385,29 @@ Partial Class DataEntry
         DataGridView1.AllowUserToDeleteRows = False
         DataGridView1.BackgroundColor = SystemColors.ControlLightLight
         DataGridView1.BorderStyle = BorderStyle.Fixed3D
-        DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
         DataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle1.BackColor = SystemColors.Info
-        DataGridViewCellStyle1.Font = New Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point)
-        DataGridViewCellStyle1.ForeColor = SystemColors.ControlText
-        DataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight
-        DataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText
-        DataGridViewCellStyle1.WrapMode = DataGridViewTriState.False
-        DataGridView1.DefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle1.BackColor = SystemColors.Control
+        DataGridViewCellStyle1.Font = New Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point)
+        DataGridViewCellStyle1.ForeColor = SystemColors.WindowText
+        DataGridViewCellStyle1.SelectionBackColor = SystemColors.Control
+        DataGridViewCellStyle1.SelectionForeColor = SystemColors.ControlText
+        DataGridViewCellStyle1.WrapMode = DataGridViewTriState.True
+        DataGridView1.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle1
+        DataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        DataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = SystemColors.Info
+        DataGridViewCellStyle2.Font = New Font("Times New Roman", 9F, FontStyle.Bold, GraphicsUnit.Point)
+        DataGridViewCellStyle2.ForeColor = SystemColors.ControlText
+        DataGridViewCellStyle2.SelectionBackColor = SystemColors.ButtonFace
+        DataGridViewCellStyle2.SelectionForeColor = SystemColors.ControlText
+        DataGridViewCellStyle2.WrapMode = DataGridViewTriState.False
+        DataGridView1.DefaultCellStyle = DataGridViewCellStyle2
         DataGridView1.GridColor = SystemColors.ButtonFace
         DataGridView1.Location = New Point(34, 236)
         DataGridView1.Name = "DataGridView1"
         DataGridView1.ReadOnly = True
         DataGridView1.RowTemplate.Height = 25
+        DataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect
         DataGridView1.Size = New Size(801, 150)
         DataGridView1.TabIndex = 20
         ' 
